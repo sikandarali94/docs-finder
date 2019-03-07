@@ -1,0 +1,17 @@
+.search-container input {
+  width: 85%;
+}
+
+input {
+  color: #2A2A2A;
+  padding:28px;
+  border-width: 1px;
+  border-style: solid;
+  border-color: #BBBBBB;
+  background-color: #F9F9F9;
+  font-size: 130%;
+}
+
+input::placeholder {
+  color: #BBBBBB;
+}

@@ -1,1 +1,19 @@
-/* You can add global styles to this file, and also import other style files */
+/* Import Global Variables */
+@import "~src/variables";
+
+/* Global Styles */
+* {
+  font-size:20px;
+}
+
+body {
+  box-sizing: border-box;
+  font-family: 'Lato', sans-serif;
+  font-weight: 300;
+}
+
+h1 {
+  font-weight: 300;
+  font-size:170%;
+  color:$primary-color;
+}

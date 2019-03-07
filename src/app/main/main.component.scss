@@ -1,0 +1,27 @@
+/* Import Global Variables */
+@import "~src/variables";
+
+/* Main Section */
+section {
+  height:100vh;
+}
+.main-container {
+  position: absolute;
+  width:62%;
+  text-align: center;
+  top:38%;
+  left:50%;
+  transform: translate(-50%,-50%);
+}
+
+h1 {
+  margin-bottom:$margin-space;
+}
+
+strong {
+  font-size: 100%;
+}
+
+.technologies-icons {
+  margin-top:$margin-space;
+}

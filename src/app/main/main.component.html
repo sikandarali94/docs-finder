@@ -1,18 +1,22 @@
 <!-- Main Section -->
-<section class="main-container">
-  <div class="title">
-    <h1>Sikandar Ali's Documentation Finder</h1>
+<section>
+  <div class="main-container">
+    <div class="title">
+      <h1><strong>Sikandar Ali</strong>'s Documentation Finder</h1>
+    </div>
+    <!-- Search Bar -->
+    <app-search-bar></app-search-bar>
+    <div class="technologies-icons" fxLayout="row" fxLayoutAlign="center center">
+      <div fxFlex="26"></div>
+      <div fxFlex="12"><img  width="60" height="50" src="./assets/img/javascript.png" alt="javascript-icon"/></div>
+      <div fxFlex="12"><img width="60" height="55" src="./assets/img/angular.png" alt="angular-icon"/></div>
+      <div fxFlex="12"><img width="60" height="55" src="./assets/img/firebase.png" alt="firebase-icon"/></div>
+      <div fxFlex="12"><img width="60" height="55" src="./assets/img/react.png" alt="react-icon"/></div>
+      <div fxFlex="26"></div>
+    </div>
+    <!-- Search Results -->
+    <app-results></app-results>
   </div>
-  <!-- Search Bar -->
-  <app-search-bar></app-search-bar>
-  <div class="technologies-icons">
-    <img src="./assets/img/javascript.png"/>
-    <img src="./assets/img/angular.png"/>
-    <img src="./assets/img/firebase.png"/>
-    <img src="./assets/img/react.png"/>
-  </div>
-  <!-- Search Results -->
-  <app-results></app-results>
 </section>
 <!-- Footer Section -->
 <app-footer></app-footer>
