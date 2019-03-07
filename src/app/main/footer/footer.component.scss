@@ -1,0 +1,17 @@
+/* Import Global Variables */
+@import "~src/variables";
+
+/* Footer Section */
+footer {
+  background-color: $primary-color;
+  padding: 50px;
+}
+
+.footer-text {
+  text-align:center;
+}
+
+p {
+  font-size:65%;
+  color: $secondary-color;
+}

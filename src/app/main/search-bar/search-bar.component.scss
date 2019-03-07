@@ -1,3 +1,7 @@
+/* Import Global Variables */
+@import "~src/variables";
+
+/* Search Bar */
 .search-container input {
   width: 85%;
 }
@@ -8,7 +12,7 @@ input {
   border-width: 1px;
   border-style: solid;
   border-color: #BBBBBB;
-  background-color: #F9F9F9;
+  background-color: $secondary-color;
   font-size: 130%;
 }
 
