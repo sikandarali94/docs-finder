@@ -1,11 +1,12 @@
 <!-- Main Section -->
-<section>
+<section class="main-section">
   <div class="main-container">
-    <div class="title">
+    <div style="display: none" class="title">
       <h1><strong>Sikandar Ali</strong>'s Documentation Finder</h1>
     </div>
     <!-- Search Bar -->
     <app-search-bar></app-search-bar>
+    <div style="display: none">
     <div class="technologies-icons" fxLayout="row" fxLayoutAlign="center center">
       <div fxFlex="26"></div>
       <div fxFlex="12"><img  width="60" height="50" src="./assets/img/javascript.png" alt="javascript-icon"/></div>
@@ -14,9 +15,12 @@
       <div fxFlex="12"><img width="60" height="55" src="./assets/img/react.png" alt="react-icon"/></div>
       <div fxFlex="26"></div>
     </div>
+    </div>
     <!-- Search Results -->
     <app-results></app-results>
   </div>
+</section>
+<section class="results-section">
 </section>
 <!-- Footer Section -->
 <app-footer></app-footer>
