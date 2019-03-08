@@ -1,13 +1,12 @@
 <!-- Main Section -->
 <section class="main-section">
   <div class="main-container">
-    <div style="display: none" class="title">
+    <div *ngIf="!valueInSearch" class="title">
       <h1><strong>Sikandar Ali</strong>'s Documentation Finder</h1>
     </div>
     <!-- Search Bar -->
     <app-search-bar></app-search-bar>
-    <div style="display: none">
-    <div class="technologies-icons" fxLayout="row" fxLayoutAlign="center center">
+    <div *ngIf="!valueInSearch" class="technologies-icons" fxLayout="row" fxLayoutAlign="center center">
       <div fxFlex="26"></div>
       <div fxFlex="12"><img  width="60" height="50" src="./assets/img/javascript.png" alt="javascript-icon"/></div>
       <div fxFlex="12"><img width="60" height="55" src="./assets/img/angular.png" alt="angular-icon"/></div>
@@ -15,10 +14,9 @@
       <div fxFlex="12"><img width="60" height="55" src="./assets/img/react.png" alt="react-icon"/></div>
       <div fxFlex="26"></div>
     </div>
-    </div>
-    <!-- Search Results -->
-    <app-results></app-results>
   </div>
+  <!-- Search Results -->
+  <app-results *ngIf="valueInSearch"></app-results>
 </section>
 <!-- Footer Section -->
 <app-footer></app-footer>

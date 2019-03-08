@@ -10,6 +10,7 @@ import { MainComponent } from './main/main.component';
 import { SearchBarComponent } from './main/search-bar/search-bar.component';
 import { FooterComponent } from './main/footer/footer.component';
 import { ResultsComponent } from './main/results/results.component';
+import {MainService} from './main/main.service';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,7 @@ import { ResultsComponent } from './main/results/results.component';
     FlexLayoutModule,
     AngularFireDatabaseModule
   ],
-  providers: [],
+  providers: [MainService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

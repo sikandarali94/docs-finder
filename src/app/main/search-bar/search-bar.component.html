@@ -1,6 +1,6 @@
 <!-- Search Bar -->
 <div class="search-container">
   <form>
-    <input type="text" placeholder="Search..."/>
+    <input type="text" placeholder="Search..." (input)="onSearchChange($event.target.value)"/>
   </form>
 </div>
