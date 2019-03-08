@@ -1,7 +1,7 @@
 <!-- Main Section -->
 <section class="main-section">
-  <div class="main-container">
-    <div *ngIf="!valueInSearch" class="title">
+  <div class="main-container" [ngClass]="{'no-input': !valueInSearch, input: valueInSearch}">
+    <div *ngIf="!valueInSearch" ngStyle="" class="title">
       <h1><strong>Sikandar Ali</strong>'s Documentation Finder</h1>
     </div>
     <!-- Search Bar -->

@@ -5,13 +5,26 @@
 section {
   min-height:100vh;
 }
+
 .main-container {
-  position: absolute;
   width:62%;
   text-align: center;
+}
+
+.no-input {
+  position: absolute;
   top:38%;
   left:50%;
   transform: translate(-50%,-50%);
+}
+
+.input {
+  position: relative;
+  margin: 80px auto 0 auto;
+}
+
+.input {
+  position:relative;
 }
 
 h1 {
