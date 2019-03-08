@@ -1,12 +1,12 @@
 <div class="results-container">
   <div class="ui relaxed divided list">
-    <div class="item">
+    <div *ngFor="let result of results" class="item">
       <i class="large middle aligned icon">
         <img width="30" height="30" src="./assets/img/angular.png" alt="angular-icon" />
       </i>
       <div class="content">
-        <a class="header"></a>
-        <div class="description"></div>
+        <a class="header" [href]="result.link" target="_blank">{{ result.title }}</a>
+        <div class="description">{{ result.category }}</div>
       </div>
     </div>
   </div>
