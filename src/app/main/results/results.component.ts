@@ -13,6 +13,11 @@ export class ResultsComponent implements OnInit {
   constructor(private mainService: MainService) {}
 
   ngOnInit() {
+    this.mainService.listFiltered.subscribe(
+        (results) => {
+          this.results = results;
+        }
+    );
   }
 
 }

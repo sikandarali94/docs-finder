@@ -16,7 +16,7 @@
     </div>
   </div>
   <!-- Search Results -->
-  <app-results *ngIf="valueInSearch"></app-results>
+  <app-results [ngStyle]="{display: valueInSearch ? 'block' : 'none'}"></app-results>
 </section>
 <!-- Footer Section -->
 <app-footer></app-footer>

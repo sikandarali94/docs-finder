@@ -9,6 +9,8 @@ export class MainService {
     resultObserve: Observable<any>;
     modifiedResultObserve: Subscription;
     documentationRetrieved = new Subject<boolean>();
+    listFiltered = new Subject<Result[]>();
+    filteredDocList: Result[];
     /* inputExists becomes true when the search bar has a value entered inside.
      */
     inputExists = new Subject<boolean>();
@@ -58,5 +60,12 @@ export class MainService {
             mergedString = mergedString + this.lowerStringRemoveSpace(item);
         });
         return mergedString;
+    }
+
+    searchDocList(searchInput: string) {
+        this.filteredDocList = this.docList.filter(
+            (item) => item.searchString.includes(searchInput)
+        );
+        this.listFiltered.next(this.filteredDocList);
     }
 }

@@ -12,7 +12,7 @@ export class SearchBarComponent implements OnInit {
 
   documentationRetrieved = false;
 
-  constructor(private mainService: MainService) { }
+  constructor(private mainService: MainService) {}
 
   ngOnInit() {
     this.docListSubscription = this.mainService.documentationRetrieved.subscribe(
@@ -27,6 +27,7 @@ export class SearchBarComponent implements OnInit {
      */
     if (inputValue.length !== 0) {
       this.mainService.inputExists.next(true);
+      this.mainService.searchDocList(inputValue.toLowerCase().replace(/\s/g, ''));
     } else {
       this.mainService.inputExists.next(false);
     }
