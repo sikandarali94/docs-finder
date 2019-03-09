@@ -1,6 +1,7 @@
 <!-- Search Bar -->
 <div class="search-container">
   <form>
-    <input type="text" placeholder="Search..." (input)="onSearchChange($event.target.value)"/>
+    <div *ngIf="!documentationRetrieved" class="loading-bar"></div>
+    <input *ngIf="documentationRetrieved" type="text" placeholder="Search..." (input)="onSearchChange($event.target.value)"/>
   </form>
 </div>
