@@ -8,12 +8,13 @@
 
 input {
   color: #2A2A2A;
-  padding:28px;
+  padding:28px 28px 28px 45px;
   border-width: 1px;
   border-style: solid;
-  border-color: #BBBBBB;
+  border-color: #898989;
   background-color: $secondary-color;
   font-size: 130%;
+  border-radius: 3px;
 }
 
 input::placeholder {
