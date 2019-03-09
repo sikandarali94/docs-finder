@@ -2,7 +2,7 @@
   <div class="ui relaxed divided list">
     <div *ngFor="let result of results" class="item">
       <i class="large middle aligned icon">
-        <img width="30" height="30" src="./assets/img/angular.png" alt="angular-icon" />
+        <img width="30" height="28" [src]="result.image" alt="angular-icon" />
       </i>
       <div class="content">
         <a class="header" [href]="result.link" target="_blank">{{ result.title }}</a>
