@@ -25,7 +25,7 @@ export class MainService {
                 results.map(
                     (item: Result) => {
                         item.searchString = this.mergeArrayItemsToString(
-                            [item.title, item.technology, item.category, ...item.keywords]
+                            [item.title, item.technology, item.category, ...(item.keywords || [])]
                         );
                         switch (item.technology) {
                             case 'JavaScript':
