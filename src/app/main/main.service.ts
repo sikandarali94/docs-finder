@@ -18,25 +18,30 @@ export class MainService {
 
     constructor(private db: AngularFireDatabase) {}
 
+    filterByTechnology(docs: Result[], technologies: string[]) {
+        return docs.filter(doc => technologies.includes(doc.technology));
+    }
+
     getDocumentationList() {
         this.resultObserve = this.db.list('documentation').valueChanges();
         this.modifiedResultObserve = this.resultObserve.pipe(map(
             (results: Result[]) => {
-                results.map(
+                const filteredTechnologies = this.filterByTechnology(results, ['VueJS', 'PHP']);
+                filteredTechnologies.map(
                     (doc: Result) => {
                         doc.searchString = this.mergeArrayItemsToString(
                             [doc.title, doc.technology, doc.category, ...(doc.keywords || [])]
                         );
                         switch (doc.technology) {
-                            case 'JavaScript':
-                                doc.image = './assets/img/javascript.png';
-                                break;
-                            case 'Angular':
-                                doc.image = './assets/img/angular.png';
-                                break;
-                            case 'React Redux':
-                                doc.image = './assets/img/react.png';
-                                break;
+                            // case 'JavaScript':
+                            //     doc.image = './assets/img/javascript.png';
+                            //     break;
+                            // case 'Angular':
+                            //     doc.image = './assets/img/angular.png';
+                            //     break;
+                            // case 'React Redux':
+                            //     doc.image = './assets/img/react.png';
+                            //     break;
                             case 'VueJS':
                                 doc.image = './assets/img/vue.svg';
                                 break;
@@ -46,7 +51,7 @@ export class MainService {
                         }
                     }
                 );
-                return results;
+                return filteredTechnologies;
             }
         )).subscribe(
             (modifiedDocList) => {
@@ -70,8 +75,7 @@ export class MainService {
 
     searchDocList(searchInput: string) {
         this.filteredDocList = this.docList.filter(
-            (doc: Result) => doc.searchString.includes(searchInput) && (doc.technology === 'VueJS' ||
-                doc.technology === 'PHP')
+            (doc: Result) => doc.searchString.includes(searchInput)
         );
         this.listFiltered.next(this.filteredDocList);
     }
