@@ -23,19 +23,25 @@ export class MainService {
         this.modifiedResultObserve = this.resultObserve.pipe(map(
             (results: Result[]) => {
                 results.map(
-                    (item: Result) => {
-                        item.searchString = this.mergeArrayItemsToString(
-                            [item.title, item.technology, item.category, ...(item.keywords || [])]
+                    (doc: Result) => {
+                        doc.searchString = this.mergeArrayItemsToString(
+                            [doc.title, doc.technology, doc.category, ...(doc.keywords || [])]
                         );
-                        switch (item.technology) {
+                        switch (doc.technology) {
                             case 'JavaScript':
-                                item.image = './assets/img/javascript.png';
+                                doc.image = './assets/img/javascript.png';
                                 break;
                             case 'Angular':
-                                item.image = './assets/img/angular.png';
+                                doc.image = './assets/img/angular.png';
                                 break;
                             case 'React Redux':
-                                item.image = './assets/img/react.png';
+                                doc.image = './assets/img/react.png';
+                                break;
+                            case 'VueJS':
+                                doc.image = './assets/img/vue.svg';
+                                break;
+                            case 'PHP':
+                                doc.image = './assets/img/php.png';
                                 break;
                         }
                     }
@@ -64,7 +70,8 @@ export class MainService {
 
     searchDocList(searchInput: string) {
         this.filteredDocList = this.docList.filter(
-            (item) => item.searchString.includes(searchInput)
+            (doc: Result) => doc.searchString.includes(searchInput) && (doc.technology === 'VueJS' ||
+                doc.technology === 'PHP')
         );
         this.listFiltered.next(this.filteredDocList);
     }

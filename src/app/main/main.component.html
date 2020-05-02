@@ -2,16 +2,14 @@
 <section class="main-section">
   <div class="main-container" [ngClass]="{'no-input': !valueInSearch, input: valueInSearch}">
     <div *ngIf="!valueInSearch" ngStyle="" class="title">
-      <h1><strong>Sikandar Ali</strong>'s Documentation Finder</h1>
+      <h1>YMNA Documentation Finder</h1>
     </div>
     <!-- Search Bar -->
     <app-search-bar></app-search-bar>
     <div *ngIf="!valueInSearch" class="technologies-icons" fxLayout="row" fxLayoutAlign="center center">
       <div fxFlex="26"></div>
-      <div fxFlex="12"><img width="60" height="55" src="./assets/img/angular.png" alt="angular-icon"/></div>
-      <div fxFlex="12"><img width="60" height="55" src="./assets/img/firebase.png" alt="firebase-icon"/></div>
-      <div fxFlex="12"><img  width="60" height="50" src="./assets/img/javascript.png" alt="javascript-icon"/></div>
-      <div fxFlex="12"><img width="60" height="55" src="./assets/img/react.png" alt="react-icon"/></div>
+      <div fxFlex="12"><img width="60" height="55" src="./assets/img/vue.svg" alt="vue-icon"/></div>
+      <div fxFlex="12"><img height="55" src="./assets/img/php.png" alt="php-icon"/></div>
       <div fxFlex="26"></div>
     </div>
   </div>
