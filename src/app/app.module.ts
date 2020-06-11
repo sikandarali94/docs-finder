@@ -10,23 +10,23 @@ import { MainComponent } from './main/main.component';
 import { SearchBarComponent } from './main/search-bar/search-bar.component';
 import { FooterComponent } from './main/footer/footer.component';
 import { ResultsComponent } from './main/results/results.component';
-import {MainService} from './main/main.service';
+import { MainService } from './main/main.service';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    MainComponent,
-    SearchBarComponent,
-    FooterComponent,
-    ResultsComponent
-  ],
-  imports: [
-    BrowserModule,
-    AngularFireModule.initializeApp(environment.firebase),
-    FlexLayoutModule,
-    AngularFireDatabaseModule
-  ],
-  providers: [MainService],
-  bootstrap: [AppComponent]
+    declarations: [
+        AppComponent,
+        MainComponent,
+        SearchBarComponent,
+        FooterComponent,
+        ResultsComponent
+    ],
+    imports: [
+        BrowserModule,
+        AngularFireModule.initializeApp(environment.firebase),
+        FlexLayoutModule,
+        AngularFireDatabaseModule
+    ],
+    providers: [MainService],
+    bootstrap: [AppComponent]
 })
 export class AppModule { }

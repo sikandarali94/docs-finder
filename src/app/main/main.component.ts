@@ -1,6 +1,9 @@
-import {Component, OnDestroy, OnInit} from '@angular/core';
-import {MainService} from './main.service';
-import {Subscription} from 'rxjs';
+import { Component, Input, OnDestroy, OnInit } from '@angular/core';
+import { Subscription } from 'rxjs';
+
+import { MainService } from './main.service';
+import { LogoPathsModel } from '../models/models';
+import { LogoPaths } from '../constants/constants';
 
 @Component({
   selector: 'app-main',
@@ -8,22 +11,24 @@ import {Subscription} from 'rxjs';
   styleUrls: ['./main.component.scss']
 })
 export class MainComponent implements OnInit, OnDestroy {
-  inputSubscription: Subscription;
-  valueInSearch = false;
+    inputSubscription: Subscription;
+    valueInSearch = false;
+    @Input() technologies: string[];
+    logoPaths: LogoPathsModel = LogoPaths;
 
-  constructor(private mainService: MainService) { }
+    constructor(private mainService: MainService) { }
 
-  ngOnInit() {
-    this.mainService.getDocumentationList();
-    this.inputSubscription = this.mainService.inputExists.subscribe(
-        (value) => {
-          this.valueInSearch = value;
-        }
-    );
-  }
+    ngOnInit() {
+        this.mainService.getDocumentationList(this.technologies);
+        this.inputSubscription = this.mainService.inputExists.subscribe(
+            (value) => {
+              this.valueInSearch = value;
+            }
+        );
+    }
 
-  ngOnDestroy() {
-    this.inputSubscription.unsubscribe();
-  }
+    ngOnDestroy() {
+        this.inputSubscription.unsubscribe();
+    }
 
 }

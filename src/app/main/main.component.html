@@ -1,20 +1,21 @@
 <!-- Main Section -->
 <section class="main-section">
-  <div class="main-container" [ngClass]="{'no-input': !valueInSearch, input: valueInSearch}">
-    <div *ngIf="!valueInSearch" ngStyle="" class="title">
-      <h1>YMNA Documentation Finder</h1>
-    </div>
+    <div class="main-container" [ngClass]="{'no-input': !valueInSearch, input: valueInSearch}">
+        <div *ngIf="!valueInSearch" ngStyle="" class="title">
+            <h1>Documentation Finder</h1>
+        </div>
     <!-- Search Bar -->
-    <app-search-bar></app-search-bar>
-    <div *ngIf="!valueInSearch" class="technologies-icons" fxLayout="row" fxLayoutAlign="center center">
-      <div fxFlex="26"></div>
-      <div fxFlex="12"><img width="60" height="55" src="./assets/img/vue.svg" alt="vue-icon"/></div>
-      <div fxFlex="12"><img height="55" src="./assets/img/php.png" alt="php-icon"/></div>
-      <div fxFlex="26"></div>
+        <app-search-bar></app-search-bar>
+        <div *ngIf="!valueInSearch" class="technologies-icons" fxLayout="row" fxLayoutAlign="center center">
+            <div fxFlex="26"></div>
+            <div fxFlex="12" *ngFor="let technology of technologies">
+                <img width="60" height="55" [src]="logoPaths[technology]" [alt]="technology + ' icon'"/>
+            </div>
+            <div fxFlex="26"></div>
+        </div>
     </div>
-  </div>
-  <!-- Search Results -->
-  <app-results [ngStyle]="{display: valueInSearch ? 'block' : 'none'}"></app-results>
+<!-- Search Results -->
+<app-results [ngStyle]="{display: valueInSearch ? 'block' : 'none'}"></app-results>
 </section>
 <!-- Footer Section -->
 <app-footer></app-footer>

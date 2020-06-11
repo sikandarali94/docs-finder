@@ -1,8 +1,10 @@
-import {Observable, Subject, Subscription} from 'rxjs';
-import {map} from 'rxjs/operators';
-import {Result} from './results/result.model';
-import {AngularFireDatabase} from '@angular/fire/database';
-import {Injectable} from '@angular/core';
+import { Observable, Subject, Subscription } from 'rxjs';
+import { Injectable } from '@angular/core';
+import { map } from 'rxjs/operators';
+import { AngularFireDatabase } from '@angular/fire/database';
+
+import { Result } from './results/result.model';
+import { Technologies } from '../constants/constants';
 
 @Injectable()
 export class MainService {
@@ -22,30 +24,30 @@ export class MainService {
         return docs.filter(doc => technologies.includes(doc.technology));
     }
 
-    getDocumentationList() {
+    getDocumentationList(technologies: string[]) {
         this.resultObserve = this.db.list('documentation').valueChanges();
         this.modifiedResultObserve = this.resultObserve.pipe(map(
             (results: Result[]) => {
-                const filteredTechnologies = this.filterByTechnology(results, ['VueJS', 'PHP']);
+                const filteredTechnologies = this.filterByTechnology(results, technologies);
                 filteredTechnologies.map(
                     (doc: Result) => {
                         doc.searchString = this.mergeArrayItemsToString(
                             [doc.title, doc.technology, doc.category, ...(doc.keywords || [])]
                         );
                         switch (doc.technology) {
-                            // case 'JavaScript':
-                            //     doc.image = './assets/img/javascript.png';
-                            //     break;
-                            // case 'Angular':
-                            //     doc.image = './assets/img/angular.png';
-                            //     break;
-                            // case 'React Redux':
-                            //     doc.image = './assets/img/react.png';
-                            //     break;
-                            case 'VueJS':
+                            case Technologies.JS:
+                                doc.image = './assets/img/javascript.png';
+                                break;
+                            case Technologies.Angular:
+                                doc.image = './assets/img/angular.png';
+                                break;
+                            case Technologies.React:
+                                doc.image = './assets/img/react.png';
+                                break;
+                            case Technologies.Vue:
                                 doc.image = './assets/img/vue.svg';
                                 break;
-                            case 'PHP':
+                            case Technologies.PHP:
                                 doc.image = './assets/img/php.png';
                                 break;
                         }
